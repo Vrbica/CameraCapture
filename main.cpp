@@ -87,15 +87,15 @@ int main() {
     }
 
     // --- Save path ---
-    std::cout << "\n  Save path [C:\\Photos]: ";
-    std::string savePath;
+    std::cout << "\n  Save path [C:\\Users\\vrbicama\\Pictures\\Versuche]: ";
+    std::string savePath ="";
     std::getline(std::cin, savePath);
-    if (savePath.empty()) savePath = "C:\\Photos";
-    ctrl.savePath = savePath;
+    if (savePath.empty()) savePath = "C:\\Users\\vrbicama\\Pictures\\Versuche";
+    ctrl.savePath = "C:\\Users\\vrbicama\\Pictures\\Versuche\\" + savePath;
 
     // --- Part number ---
     std::cout << "  Part number [PART]: ";
-    std::string partNumber;
+    std::string partNumber = "";
     std::getline(std::cin, partNumber);
     if (partNumber.empty()) partNumber = "PART";
     ctrl.partNumber = partNumber;
