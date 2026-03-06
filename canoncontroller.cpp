@@ -136,9 +136,10 @@ void CanonController::downloadImage(EdsDirectoryItemRef dirItem) {
        << "_" << std::setfill('0') << std::setw(3) << ms.count();
 
     std::string filename = partNumber + "_" + ts.str() + ext;
-    std::string fullPath = (fs::path(savePath) / filename).string();
+    fs::path subDir = fs::path(savePath) / partNumber;
+    std::string fullPath = (subDir / filename).string();
 
-    fs::create_directories(savePath);
+    fs::create_directories(subDir);
 
     EdsStreamRef stream = nullptr;
     EdsError err = EdsCreateFileStream(

@@ -128,6 +128,18 @@ int main() {
             else if (ch == 'X') {
                 if (ctrl.isCapturing()) {
                     ctrl.stopCapture();
+
+                    // Re-prompt for save path and part number
+                    std::cout << "\n  Save path [" << ctrl.savePath << "]: ";
+                    std::string newPath;
+                    std::getline(std::cin, newPath);
+                    if (!newPath.empty()) ctrl.savePath = newPath;
+
+                    std::cout << "  Part number [" << ctrl.partNumber << "]: ";
+                    std::string newPart;
+                    std::getline(std::cin, newPart);
+                    if (!newPart.empty()) ctrl.partNumber = newPart;
+
                     printPrompt(false);
                 }
             }
